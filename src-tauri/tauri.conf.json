@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "LoupePlay",
+  "version": "0.1.0",
+  "identifier": "com.loupe-play.desktop",
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "npm run build",
+    "frontendDist": "../dist"
+  },
+  "plugins": {
+    "sql": {
+      "preload": ["sqlite:loupe-play.db"]
+    }
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "LoupePlay",
+        "width": 1180,
+        "height": 760,
+        "minWidth": 320,
+        "minHeight": 560,
+        "resizable": true,
+        "fullscreen": false
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost; media-src 'self' asset: http://asset.localhost; style-src 'self'",
+      "devCsp": "default-src 'self'; connect-src 'self' ipc: http://ipc.localhost http://localhost:1420 ws://localhost:1420; font-src 'self' data:; img-src 'self' data: asset: http://asset.localhost; media-src 'self' asset: http://asset.localhost; script-src 'self' 'unsafe-eval'; style-src 'self' 'unsafe-inline'",
+      "assetProtocol": {
+        "enable": true,
+        "scope": []
+      }
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "category": "Music",
+    "shortDescription": "Listen. Loupe. Play.",
+    "longDescription": "A local music player for listening, observing, repeating, and practising."
+  }
+}

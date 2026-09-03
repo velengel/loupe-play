@@ -1,0 +1,27 @@
+[package]
+name = "loupe-play"
+version = "0.1.0"
+description = "Listen. Loupe. Play."
+authors = ["LoupePlay contributors"]
+edition = "2021"
+rust-version = "1.89"
+
+[lib]
+name = "loupe_play_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2.6.3", features = [] }
+
+[dependencies]
+lofty = "=0.25.1"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tauri = { version = "2.11.5", features = ["protocol-asset"] }
+tauri-plugin-dialog = "2.7.3"
+tauri-plugin-fs = "2.5.2"
+tauri-plugin-persisted-scope = { version = "2", features = ["protocol-asset"] }
+tauri-plugin-sql = { version = "2.4.1", features = ["sqlite"] }
+
+[dev-dependencies]
+sqlx = { version = "=0.8.6", default-features = false, features = ["runtime-tokio", "sqlite"] }

@@ -1,0 +1,13 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Permissions required by the LoupePlay foundation window.",
+  "windows": ["main"],
+  "permissions": [
+    "core:path:allow-join",
+    "dialog:allow-open",
+    "fs:allow-read-dir",
+    "sql:allow-execute",
+    "sql:allow-select"
+  ]
+}

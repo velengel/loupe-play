@@ -1,0 +1,37 @@
+# Dependencies and build outputs
+node_modules/
+dist/
+coverage/
+.vite/
+target/
+src-tauri/gen/schemas/
+src-tauri/icons/android/
+src-tauri/icons/ios/
+*.tsbuildinfo
+
+# Local logs and editor metadata
+*.log
+.DS_Store
+.codex-log/
+.mydocs/
+.worktrees/
+
+# Local application data copied out of the OS AppConfig directory
+loupe-play.db*
+
+# Local audio fixtures and personal media
+*.[Ww][Aa][Vv]
+*.[Mm][Pp]3
+*.[Ff][Ll][Aa][Cc]
+
+# Local configuration that may contain credentials
+.env
+.env.*
+!.env.example
+.npmrc
+
+# Private key and certificate containers
+*.key
+*.pem
+*.p12
+*.pfx

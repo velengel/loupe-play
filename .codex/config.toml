@@ -1,0 +1,3 @@
+# Keep variables whose names look like credentials out of Codex-run commands.
+[shell_environment_policy]
+ignore_default_excludes = false
