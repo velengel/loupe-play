@@ -8,3 +8,8 @@
 - npm 11はViteのoptional dependency `fsevents`に未承認install scriptがあると警告した。packageを承認しなくても242 frontend tests、lint、buildは通り、この移行の再現性には影響しなかった。
 - 旧sourceの最初の削除では、削除中に作られた`.DS_Store`だけが空directoryを残した。残存物、open file、Finder windowを確認してから再削除することで、cacheの残りと利用者作業を区別できた。
 - LoupePlayのSQLite databaseはTauri identifierに対応するApplication Support配下にあり、repository pathを変えても移動しなかった。source削除とapplication data削除は別の境界である。
+
+## 2026-09-03 Story 0017 personal-use source policy
+
+- GitHub repositoryをpublicにする設定は、第三者へ一般的な再利用権を与えるOSS licenseとは一致しない。`LICENSE`がなくてもGitHub上の閲覧とforkは認められるため、「sourceを見せる」と「第三者利用を許す」は別々に記録する必要があった。
+- LoupePlay自身にlicenseを付与しない判断は、依存ライブラリのlicenseを消したり置き換えたりしない。将来アプリを第三者へ配布する場合は、利用許諾を選ぶ判断と、同梱依存物のnoticeを揃える作業を分けて扱う必要がある。

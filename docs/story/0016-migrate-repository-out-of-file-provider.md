@@ -48,7 +48,7 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 - `src-tauri/target`だけで7.6 GBあるため、複製すると検証時間とdisk使用量が増える。buildで再生成できることを確認し、移行対象から外す。
 - filesystem上のdirectory移動だけでは、remoteから再構築できることを証明できない。cloneとsourceの照合を完了条件にする。
 - 旧配置を削除すると、過去90commitは回復できない。利用者はStoryとADRで判断を追えることを優先し、このcommit単位の履歴喪失を受け入れる。
-- `LICENSE`は未決である。public化はsourceの閲覧可能性を変えるが、第三者へ許す再利用条件は別の判断として残る。
+- 移行完了時点では`LICENSE`が未決だった。第三者へ再利用を許諾しない判断は[Story 0017](0017-keep-public-source-for-personal-use.md)と[ADR 0026](../ADR/0026-keep-public-source-unlicensed-for-personal-use.md)に記録する。
 
 ## Understanding Gate（実装前理解確認）
 
@@ -57,6 +57,6 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 - Questions: GitHubでの公開境界と、旧配置および過去履歴を残す条件を問うた。
 - User explanation: GitHubはpublicとし、個人emailを含む過去commitは公開しない。現行StoryとADRがあれば判断を追えるため、移行検証後は過去履歴を含むiCloud配置を完全削除してよい。
 - Misalignment / Resolution: なし。
-- Unresolved: `LICENSE`による第三者の再利用条件は、この移行では決めない。
+- Unresolved: 移行時点では`LICENSE`による第三者の再利用条件が未決だった。後続の[Story 0017](0017-keep-public-source-for-personal-use.md)で解消した。
 
 検証結果は[Story 0016 verification report](../reports/2026-09-03-story-0016-repository-migration-verification.md)に記録する。
