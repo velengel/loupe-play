@@ -20,6 +20,7 @@ tracked fileと全到達可能履歴の内容からcredential、個人音源、d
 
 - GitHubにpublicな`velengel/loupe-play`を作成する。
 - 既存`.git`はremoteへ送らない。現行tracked treeと移行判断文書から、GitHubのnoreply emailを使う新しいinitial commitを作る。
+- fresh cloneのrepository local Git emailをGitHub noreplyへ固定する。global Git emailは他repositoryへ影響するため変更しない。
 - push前にpublic snapshotを機密情報patternで確認する。
 - 新しい開発配置は`$HOME/Developer/active/loupe-play`とし、remoteからfresh cloneする。
 - 作成用repositoryとcloneはHEAD commit、tracked tree、branch、remoteで照合する。旧repositoryとはtracked treeの内容を照合する。
