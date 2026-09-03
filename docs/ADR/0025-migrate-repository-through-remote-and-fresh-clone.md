@@ -20,6 +20,7 @@ tracked fileと全到達可能履歴の内容からcredential、個人音源、d
 
 - GitHubにpublicな`velengel/loupe-play`を作成する。
 - 既存`.git`はremoteへ送らない。現行tracked treeと移行判断文書から、GitHubのnoreply emailを使う新しいinitial commitを作る。
+- fresh cloneのrepository local Git emailをGitHub noreplyへ固定する。global Git emailは他repositoryへ影響するため変更しない。
 - push前にpublic snapshotを機密情報patternで確認する。
 - 新しい開発配置は`$HOME/Developer/active/loupe-play`とし、remoteからfresh cloneする。
 - 作成用repositoryとcloneはHEAD commit、tracked tree、branch、remoteで照合する。旧repositoryとはtracked treeの内容を照合する。
@@ -50,4 +51,4 @@ tracked fileと全到達可能履歴の内容からcredential、個人音源、d
 - `.mydocs`はclone後もignored fileであり、GitHubからは復元できない。移行manifestにchecksumと保全先を残す。
 - application databaseはrepository外に残る。新配置から起動して同じidentifierを使う限り、path移行だけではdatabaseを複製しない。
 - 旧iCloud配置の削除後、過去90commitとdangling blobは回復できない。現行StoryとADRを残す代わりに、commit単位の作業過程を失う。
-- `LICENSE`はこのADRで決めない。public repositoryに再利用条件が明記されない状態は別Storyで見直せる。
+- `LICENSE`はこのADRでは決めなかった。第三者へ再利用を許諾しない判断は、後続の[ADR 0026](0026-keep-public-source-unlicensed-for-personal-use.md)で確定した。

@@ -108,6 +108,14 @@ npm run tauri build -- --no-bundle
 
 macOSでは、Tauri process / WebViewの起動、既存DBからversion 4までのSQLite migration、Note / 検索 / PlayEventを含む保存境界、release app bundle、外部fixtureを使ったWAV / MP3 / FLAC metadata parserまで確認済みです。外部テストfolderでは、scope保存後の完全終了、dialogなしの再起動、自動再走査、Track選択、play / pause状態遷移も確認済みです。個別ファイル選択、Noteの再生区間、ヘルプは自動検査、release build、320px / 1440pxのReact描画まで確認し、今回変更したヘルプのnative WebView実操作は未検証です。スピーカーからの可聴音、Windows buildとWebView2も未検証です。基盤は [Story 0001 検証記録](docs/reports/2026-09-02-story-0001-foundation-verification.md)、音声制御は [Story 0002 検証記録](docs/reports/2026-09-02-story-0002-audio-foundation-verification.md)、永続ライブラリは [Story 0003 検証記録](docs/reports/2026-09-02-story-0003-library-persistence-verification.md)、日常再生は [Story 0004 検証記録](docs/reports/2026-09-02-story-0004-listen-mode-verification.md)、掘り下げ再生は [Story 0005 検証記録](docs/reports/2026-09-02-story-0005-practice-mode-verification.md)、時刻の印は [Story 0006 検証記録](docs/reports/2026-09-02-story-0006-marker-verification.md)、メモ・検索・履歴は [Stories 0007–0009 検証記録](docs/reports/2026-09-02-stories-0007-0009-mvp-verification.md)、最近のfolder再オープンは [Story 0010 検証記録](docs/reports/2026-09-02-story-0010-recent-library-reopening-verification.md)、個別ファイル選択と再生UIは [Story 0011 検証記録](docs/reports/2026-09-02-story-0011-file-selection-and-player-affordance-verification.md)、Noteの時間文脈とヘルプは [Story 0012 検証記録](docs/reports/2026-09-02-story-0012-readable-note-context-and-help-verification.md)、faviconと個人用ドメインquizは [Stories 0013–0014 検証記録](docs/reports/2026-09-02-stories-0013-0014-favicon-and-domain-quiz-verification.md) に分けてあります。
 
+## 利用条件
+
+LoupePlayは個人利用のために開発しており、このリポジトリのソースコードをオープンソースとして利用許諾していません。
+GitHubの利用規約や適用法令で認められる場合を除き、第三者による複製、改変、再配布、商用利用を許可する`LICENSE`は付与していません。
+依存ライブラリには、それぞれのライセンスが適用されます。
+
+判断の理由と公開リポジトリで残る閲覧範囲は、[ADR 0026](docs/ADR/0026-keep-public-source-unlicensed-for-personal-use.md)に記録しています。
+
 ## 開発ルール
 
 - 実装前に `docs/story/` へ Story を作る。

@@ -15,6 +15,7 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 
 - 現行tracked treeを個人emailを含まないinitial commitにし、publicなGitHub remoteへ保存する。
 - `$HOME/Developer/active/loupe-play`をremoteからfresh cloneし、公開snapshotのHEAD、tracked tree、branch、remoteを照合する。
+- 新cloneのrepository local Git emailをGitHub noreplyへ固定し、今後のworktreeでも個人emailを使わない。
 - ignored fileのうち、`.mydocs`のHTML成果物だけをchecksum付きで新配置へ複製する。
 - `node_modules`、`dist`、`src-tauri/target`、Tauri生成schema、AndroidとiOSの派生iconは移さず、新配置で必要なものを再生成する。
 - 新配置でdependency install、test、lint、frontend build、Rust testとcheckを実行し、結果を層別に記録する。
@@ -29,16 +30,16 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 - [x] 現行repository、worktree、File Provider状態、ignored file、dangling objectを読取だけで確認する。
 - [x] 移行判断をADRへ記録する。
 - [x] Understanding Gateを`Passed`にする。
-- [ ] tracked fileと履歴を機密情報patternで確認する。
-- [ ] 現行tracked treeから個人emailを含まないpublic snapshotを作る。
-- [ ] GitHub remoteを作成し、snapshotのmainをpushして到達可能性を確認する。
-- [ ] remoteから新配置へfresh cloneし、`.mydocs`を複製する。
-- [ ] dependency、test、lint、frontend build、Rust testとcheckを検証する。
-- [ ] 新配置のrepository内でlinked worktreeを作成し、Git操作を確認してから片付ける。
-- [ ] Codex設定をbackupして新pathへ切り替える。
-- [ ] 移行manifestとSurprise & Discoveryを更新する。
-- [ ] 旧iCloud配置を完全削除し、pathが存在しないことを確認する。
-- [ ] 差分、機密情報、Git状態を確認し、作業境界でcommitする。
+- [x] tracked fileと履歴を機密情報patternで確認する。
+- [x] 現行tracked treeから個人emailを含まないpublic snapshotを作る。
+- [x] GitHub remoteを作成し、snapshotのmainをpushして到達可能性を確認する。
+- [x] remoteから新配置へfresh cloneし、`.mydocs`を複製する。
+- [x] dependency、test、lint、frontend build、Rust testとcheckを検証する。
+- [x] 新配置のrepository内でlinked worktreeを作成し、Git操作を確認してから片付ける。
+- [x] Codex設定をbackupして新pathへ切り替える。
+- [x] 移行manifestとSurprise & Discoveryを更新する。
+- [x] 旧iCloud配置を完全削除し、pathが存在しないことを確認する。
+- [x] 差分、機密情報、Git状態を確認し、作業境界でcommitする。
 
 ## Concern（懸念）
 
@@ -47,7 +48,7 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 - `src-tauri/target`だけで7.6 GBあるため、複製すると検証時間とdisk使用量が増える。buildで再生成できることを確認し、移行対象から外す。
 - filesystem上のdirectory移動だけでは、remoteから再構築できることを証明できない。cloneとsourceの照合を完了条件にする。
 - 旧配置を削除すると、過去90commitは回復できない。利用者はStoryとADRで判断を追えることを優先し、このcommit単位の履歴喪失を受け入れる。
-- `LICENSE`は未決である。public化はsourceの閲覧可能性を変えるが、第三者へ許す再利用条件は別の判断として残る。
+- 移行完了時点では`LICENSE`が未決だった。第三者へ再利用を許諾しない判断は[Story 0017](0017-keep-public-source-for-personal-use.md)と[ADR 0026](../ADR/0026-keep-public-source-unlicensed-for-personal-use.md)に記録する。
 
 ## Understanding Gate（実装前理解確認）
 
@@ -56,4 +57,6 @@ LoupePlayはiCloud Drive配下にあり、GitのobjectやworktreeがFile Provide
 - Questions: GitHubでの公開境界と、旧配置および過去履歴を残す条件を問うた。
 - User explanation: GitHubはpublicとし、個人emailを含む過去commitは公開しない。現行StoryとADRがあれば判断を追えるため、移行検証後は過去履歴を含むiCloud配置を完全削除してよい。
 - Misalignment / Resolution: なし。
-- Unresolved: `LICENSE`による第三者の再利用条件は、この移行では決めない。
+- Unresolved: 移行時点では`LICENSE`による第三者の再利用条件が未決だった。後続の[Story 0017](0017-keep-public-source-for-personal-use.md)で解消した。
+
+検証結果は[Story 0016 verification report](../reports/2026-09-03-story-0016-repository-migration-verification.md)に記録する。
